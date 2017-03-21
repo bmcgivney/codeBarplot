@@ -1,0 +1,72 @@
+{r echo=FALSE, results='hide',message=FALSE}
+
+The puromycin study
+==========================
+By Winnie the Pooh
+------------------
+
+Introduction
+------------
+
+The _Puromycin_ data
+--------------------
+
+The _Puromycin_ dataframe has 23 rows and 3 columns of the reaction
+velocity versus substrate concentration in an enzymatic reaction
+involving untreated cells or cells treated with Puromycin.
+
+```{r}
+echo=FALSE
+```
+
+
+```{r, echo=FALSE, results='hide', message=FALSE}
+
+head(Puromycin,3, echo=FALSE)
+```
+
+Initial graphics shows:
+```{r, echo=FALSE}
+library(ggplot2)
+p1<-qplot(conc, rate, colour=state, data=Puromycin)
+p2<-qplot(log(conc), rate, colour=state, data=Puromycin)
+gridExtra::grid.arrange(p1, p2, ncol=1)
+```
+
+Fit a model to transformed data
+```{r}
+m1 <- lm(rate~state + log(conc), data=Puromycin)
+summary(m1)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
